@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/adminDashboardBackground.css}" />
+<link rel="stylesheet" th:href="@{/css/adminRegistration.css}" />
+<link rel="stylesheet" th:href="@{/css/adminDashboard.css}" />
+</head>
+<body>
+	
+	<nav class="navbar navbar-light bg-light">
+		
+		<ul class="navbar-nav ml-auto">
+		
+		<li class="nav-item">
+      Hello <span th:text="${firstName}"></span> (Flight Admin)
+      
+      <a style="text-decoration:none" th:href="@{/admin/logout}">&emsp;LOGOUT</a>  
+      </li>
+      
+		</ul>
+	</nav>   
+	
+	<div class="sidebar">
+	  
+	 
+	<a th:href="@{/admin/adminHomePage}" class="item">HOME</a>
+	 <a th:href="@{/admin/flight-addition}" class="item">FLIGHT_MASTER</a>
+	 <a th:href="@{/admin/flight-desc}" class="item">FLIGHT_DESC</a>
+	 <a th:href="@{/admin/flight-details}" class="item">FLIGHT_DETAILS</a>
+	 <a th:href="@{/admin/flight_modification}" class="item">FLIGHT_MODIFICATION</a>
+	 <a th:href="@{/admin/flight-deletion}" class="item">FLIGHT_DELETION</a>
+	 <a th:href="@{/admin/flight-cancellation}" class="item">CANCELLATION</a>
+	 <a th:href="@{/admin/flight-reservation-view}" class="item">RESERVATION VIEW</a>
+	 <a th:href="@{/admin/flight-concession-master}" class="item">CONCESSION_MASTER</a>
+	 <a th:href="@{/admin/flight-cancellation-master}" class="item">CANCELLATION MASTER</a>
+	 <a th:href="@{/admin/logout}" class="item">LOGOUT</a>
+	
+	
+	
+	</div>
+	
+	<div class="content">
+	
+	</div>
+		<div class="container">
+		
+		<div class="col-md-8 offset-md-2">
+		
+		 <div class="card-body">
+		 
+		 <div class="col-md-8 offset-md-2">
+		 <h2 class="text-center">Flight Desc </h2>
+		 
+		 </div>
+		 
+		 
+		 <div th:if="param.success">
+			 <h6 class="text-center" th:text="${flightDescDetails}"></h6>
+			
+			</div>
+		 
+		 <form th:action="@{/admin/flight-desc}" method="post" th:object="${flightDesc}">
+		   <label for="FLIGHT_NO">FLIGHT_NO</label>
+		   
+		   <select class="form-control" th:field="*{flightNo}">
+		   	
+		   	<option value="">SELECT FLIGHTNO</option>
+		   	
+		   	<option th:each="flightNo : ${flightNoList}" th:value="${flightNo}"
+				th:text=${flightNo}>
+		   </select>
+		   
+		   <label for="CATEGORY">CATEGORY</label>
+		   
+		   <select class="form-control" th:field="*{category}">
+		    
+		    <option value="">SELECT CATEGORY</option> 
+		    
+		    <option th:each="economy: ${economyList}" th:value="${economy}"
+				th:text=${economy}>
+		   </select>
+		    
+		    <label for="COST_OF_TICKET">COST_OF_TICKET</label>
+		    
+		    <input type="number" class="form-control" th:field="*{ticketCost}"/>
+		    
+		    <label for="STARTING_SEATNO">STARTING SEAT NO</label>
+		    
+		    <input type="number"  class="form-control" th:field="*{startingSeatNo}"/>
+		    
+		    <label for="ENDING_SEATNO">ENDING_SEATNO</label>
+		    <input type="number" class="form-control" th:field="*{endingSeatNo}"/>
+		    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		    <div class="container text-center">
+		     
+		     <button type="submit" class="btn btn-primary">Save</button>
+		    
+		    </div>
+		    
+		       
+		   
+		   
+		 </form>
+		 </div>
+		 
+		
+		</div>
+		
+		</div>
+		
+		
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

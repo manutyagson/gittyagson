@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/loginPage.css}" />
+</head>
+<body>
+		<div class="container">
+		
+		<div class="col-md-8 offset-md-2">
+			
+			<div class="card-body">
+			
+			<div class="col-md-8 offset-md-2">
+				<h2 class="text-center">Holiday Airways Admin </h2>
+			</div>
+			
+			<div th:if="param.errors">
+			 
+			 <h6 class="text-center" th:text="${loginFail}"></h6>
+			</div>
+			
+			<h6 class="text-center" th:text="${logout}"></h6>
+			<h6 class="text-center"></h6>
+			
+			
+			<form th:action="@{/admin/adminDashboard}" method="post">
+			
+			<label for="email Address">Email Address</label>
+			<input type="email" class="form-control" name="emailAddress"/>	
+			
+			<label for="password">Password</label>
+			<input type="password" class="form-control" name="password"/>
+			
+			<div class="container text-center">
+			
+			<br>
+			<button type="submit" class="btn btn-primary">Login</button>
+			<a th:href="@{/}"><button type="button" class="btn btn-primary">Back</button></a>
+			<input type="reset" class="btn btn-warning" value="Reset">
+			<a style="text-decoration: none" th:href="@{/admin/forgot-Password}">Forgot Password</a>
+			</div>
+			
+			</form>
+				
+			
+			</div>
+		
+		</div>
+	
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+body{
+	
+	background-image:url("https://images3.alphacoders.com/568/568498.jpg");
+	background-size:cover;
+	
+}
+.bg-light {
+    background-color: 0000 !important;
+}
+.textCenter{
+	
+	text-align:center;
+	color:#FFFFFF;
+	margin-top:20px;
+}
+
+.h3textCenter{
+	text-align:center;
+	color:#FFFFFF;
+}
